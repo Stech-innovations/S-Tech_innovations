@@ -8,18 +8,47 @@
   <meta name="keywords" content="website development South Africa, app development Johannesburg, cheap websites, WhatsApp chatbot">
   <meta name="author" content="Sthembiso Mbeje">
   
-  <!-- Stylesheets -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BZ6SS3Y87H"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-BZ6SS3Y87H');
+  </script>
   
   <style>
     :root {
-      --primary: #007bff;
-      --primary-dark: #0056b3;
-      --secondary: #6c757d;
-      --light: #f8f9fa;
-      --dark: #212529;
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --primary-light: #93c5fd;
+      --secondary: #6b7280;
+      --secondary-dark: #4b5563;
+      --light: #f9fafb;
+      --dark: #111827;
+      --darker: #030712;
+      --success: #10b981;
       --whatsapp: #25D366;
+      --instagram: #E1306C;
+      --facebook: #1877F2;
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      --shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --border-radius: 12px;
+      --border-radius-lg: 16px;
     }
     
     * {
@@ -29,20 +58,46 @@
     }
     
     body { 
-      font-family: 'Montserrat', sans-serif; 
+      font-family: 'Montserrat', 'Poppins', sans-serif; 
       margin: 0; 
-      background: #f4f6f8; 
-      color: #333; 
+      background: var(--light); 
+      color: var(--dark); 
       line-height: 1.6;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
     }
     
+    /* Typography */
+    h1, h2, h3, h4, h5, h6 {
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+    
+    h1 { font-size: clamp(2.5rem, 5vw, 3.5rem); }
+    h2 { font-size: clamp(2rem, 4vw, 2.8rem); }
+    h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
+    p { margin-bottom: 1.25rem; }
+    
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: var(--transition);
+    }
+    
+    /* Header */
     header { 
-      background: linear-gradient(135deg, var(--dark) 0%, var(--primary) 100%); 
+      background: linear-gradient(135deg, var(--darker) 0%, var(--primary-dark) 100%); 
       color: #fff; 
-      padding: 80px 20px 60px; 
+      padding: 100px 20px 80px; 
       text-align: center; 
       position: relative;
       overflow: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
     
     header::before {
@@ -62,18 +117,55 @@
       z-index: 1;
     }
     
+    .header-content {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    
     h1 { 
-      font-size: 3rem; 
-      margin-bottom: 15px; 
+      margin-bottom: 20px; 
       font-weight: 900;
       text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+      background: linear-gradient(to right, #fff, var(--primary-light));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
     }
     
     header p {
-      font-size: 1.2rem;
+      font-size: 1.25rem;
       max-width: 700px;
-      margin: 0 auto 30px;
+      margin: 0 auto 40px;
       text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+    }
+    
+    .cta-button {
+      display: inline-block;
+      background: var(--primary);
+      color: white;
+      padding: 15px 35px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      margin: 10px;
+      transition: var(--transition);
+      box-shadow: var(--shadow-md);
+      border: 2px solid transparent;
+    }
+    
+    .cta-button:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-lg);
+      background: var(--primary-dark);
+    }
+    
+    .cta-button.secondary {
+      background: transparent;
+      border-color: white;
+    }
+    
+    .cta-button.secondary:hover {
+      background: rgba(255,255,255,0.1);
     }
     
     nav { 
@@ -81,17 +173,17 @@
       justify-content: center; 
       flex-wrap: wrap;
       gap: 15px;
-      margin-top: 30px;
+      margin-top: 40px;
     }
     
     nav a { 
       color: #fff; 
-      padding: 10px 20px; 
+      padding: 12px 25px; 
       text-decoration: none; 
       font-weight: 600; 
       font-size: 1.1em; 
       border-radius: 50px;
-      transition: all 0.3s ease;
+      transition: var(--transition);
       background: rgba(255,255,255,0.1);
       backdrop-filter: blur(5px);
       border: 1px solid rgba(255,255,255,0.2);
@@ -100,86 +192,190 @@
     nav a:hover, nav a:focus {
       background: rgba(255,255,255,0.2);
       transform: translateY(-2px);
+      box-shadow: var(--shadow);
     }
     
+    /* Sections */
     section { 
-      padding: 80px 20px; 
+      padding: 100px 20px; 
       max-width: 1200px; 
       margin: auto; 
+      position: relative;
     }
     
-    h2 { 
+    .section-title {
       font-size: 2.5em; 
-      margin-bottom: 40px; 
+      margin-bottom: 60px; 
       text-align: center; 
       position: relative;
       color: var(--dark);
     }
     
-    h2::after {
+    .section-title::after {
       content: "";
       display: block;
       width: 80px;
       height: 4px;
       background: var(--primary);
-      margin: 15px auto 0;
+      margin: 20px auto 0;
       border-radius: 2px;
     }
     
-    .services, .testimonials, .contact, .about { 
+    .section-subtitle {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 60px;
+      color: var(--secondary);
+      font-size: 1.1rem;
+    }
+    
+    .container {
       background: #fff; 
-      border-radius: 15px; 
-      padding: 40px; 
+      border-radius: var(--border-radius-lg); 
+      padding: 50px; 
       margin-bottom: 40px; 
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08); 
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: var(--shadow-lg); 
+      transition: var(--transition);
     }
     
-    .services:hover, .testimonials:hover, .contact:hover, .about:hover {
+    .container:hover {
       transform: translateY(-5px);
-      box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+      box-shadow: var(--shadow-xl);
     }
     
-    .service-item { 
-      display: flex; 
-      align-items: center; 
-      gap: 30px; 
-      margin-bottom: 40px;
-      padding: 20px;
+    /* Services */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 50px;
+    }
+    
+    .service-card {
+      background: white;
+      border-radius: var(--border-radius);
+      padding: 30px;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      border-top: 4px solid var(--primary);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--shadow-lg);
+    }
+    
+    .service-icon {
+      width: 60px;
+      height: 60px;
+      background: rgba(37, 99, 235, 0.1);
       border-radius: 12px;
-      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      color: var(--primary);
+      font-size: 1.5rem;
     }
     
-    .service-item:hover {
-      background: rgba(0,123,255,0.05);
-    }
-    
-    .service-item img { 
-      width: 150px; 
-      height: 150px;
-      object-fit: cover;
-      border-radius: 12px; 
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    }
-    
-    .service-item div { flex: 1; }
-    
-    .service-item h3 {
+    .service-card h3 {
       font-size: 1.5rem;
       margin-bottom: 15px;
-      color: var(--primary);
-      display: flex;
+      color: var(--dark);
+    }
+    
+    .service-card .price {
+      display: inline-block;
+      background: var(--primary);
+      color: white;
+      padding: 5px 15px;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      margin-top: 15px;
+      font-weight: 600;
+    }
+    
+    /* About */
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
       align-items: center;
     }
     
+    .about-text {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    
+    .about-img {
+      width: 100%;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow-lg);
+      transition: var(--transition);
+    }
+    
+    .about-img:hover {
+      transform: scale(1.02);
+    }
+    
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 20px;
+      margin: 50px 0;
+    }
+    
+    .stat-item {
+      text-align: center;
+      padding: 25px 15px;
+      background: rgba(37, 99, 235, 0.05);
+      border-radius: var(--border-radius);
+      transition: var(--transition);
+    }
+    
+    .stat-item:hover {
+      background: rgba(37, 99, 235, 0.1);
+      transform: translateY(-5px);
+    }
+    
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 5px;
+      line-height: 1;
+    }
+    
+    .stat-label {
+      font-size: 1rem;
+      color: var(--secondary);
+      font-weight: 500;
+    }
+    
+    /* Testimonials */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+    
     .testimonial-card { 
-      margin-bottom: 30px; 
-      background: #f0f2f5; 
+      background: white; 
       padding: 30px; 
-      border-radius: 10px; 
-      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      border-radius: var(--border-radius); 
+      box-shadow: var(--shadow);
       position: relative;
       border-left: 4px solid var(--primary);
+      transition: var(--transition);
+    }
+    
+    .testimonial-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
     }
     
     .testimonial-card::before {
@@ -187,7 +383,7 @@
       font-family: Georgia, serif;
       font-size: 60px;
       color: var(--primary);
-      opacity: 0.2;
+      opacity: 0.1;
       position: absolute;
       top: 10px;
       left: 20px;
@@ -195,51 +391,99 @@
     
     .testimonial-card p {
       font-style: italic;
-      margin-bottom: 15px;
+      margin-bottom: 20px;
       position: relative;
       z-index: 1;
     }
     
-    .testimonial-card strong {
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    
+    .testimonial-avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--primary);
+    }
+    
+    .author-info h4 {
       color: var(--primary);
+      margin-bottom: 5px;
     }
     
-    footer { 
-      background: var(--dark); 
-      color: #fff; 
-      text-align: center; 
-      padding: 50px 20px; 
-      position: relative;
+    .author-info p {
+      font-style: normal;
+      font-size: 0.9rem;
+      color: var(--secondary);
+      margin: 0;
     }
     
-    footer p {
-      max-width: 800px;
-      margin: 0 auto 20px;
+    /* Contact Form */
+    .contact-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+    }
+    
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+    
+    .contact-method {
+      display: flex;
+      align-items: flex-start;
+      gap: 15px;
+    }
+    
+    .contact-icon {
+      width: 50px;
+      height: 50px;
+      background: rgba(37, 99, 235, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+      font-size: 1.2rem;
+      flex-shrink: 0;
     }
     
     form { 
-      max-width: 700px; 
-      margin: 0 auto;
+      width: 100%;
     }
     
     .form-group {
       margin-bottom: 20px;
+      position: relative;
+    }
+    
+    form label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+      color: var(--secondary-dark);
     }
     
     form input, form textarea, form select { 
       width: 100%; 
       padding: 15px; 
-      margin: 5px 0; 
+      margin-bottom: 5px; 
       border-radius: 8px; 
       border: 1px solid #ddd; 
       font-size: 1em; 
-      transition: all 0.3s ease;
+      transition: var(--transition);
       font-family: 'Montserrat', sans-serif;
     }
     
     form input:focus, form textarea:focus, form select:focus {
       border-color: var(--primary);
-      box-shadow: 0 0 0 3px rgba(0,123,255,0.25);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.25);
       outline: none;
     }
     
@@ -251,29 +495,45 @@
       border-radius: 50px; 
       font-size: 1.1em; 
       cursor: pointer; 
-      transition: all 0.3s ease;
+      transition: var(--transition);
       font-weight: 600;
-      display: block;
-      margin: 30px auto 0;
-      box-shadow: 0 4px 15px rgba(0,123,255,0.3);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 20px;
+      box-shadow: var(--shadow);
     }
     
     form button:hover { 
       background: var(--primary-dark); 
       transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(0,123,255,0.4);
+      box-shadow: var(--shadow-md);
     }
     
-    .icon { 
-      color: var(--primary); 
-      margin-right: 10px; 
-      font-size: 1.2em;
+    /* WhatsApp Button */
+    .whatsapp-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--whatsapp);
+      color: white;
+      padding: 12px 25px;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: var(--transition);
+      box-shadow: var(--shadow);
     }
     
+    .whatsapp-button:hover {
+      background: #128C7E;
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+    
+    /* Social Links */
     .social-links {
       display: flex;
-      justify-content: center;
-      gap: 20px;
+      gap: 15px;
       margin-top: 30px;
     }
     
@@ -287,319 +547,587 @@
       align-items: center;
       justify-content: center;
       font-size: 1.2rem;
-      transition: all 0.3s ease;
+      transition: var(--transition);
     }
     
-    .social-links a:hover {
-      background: var(--primary);
-      transform: translateY(-3px);
+    .social-links a.facebook:hover {
+      background: var(--facebook);
     }
     
-    .about-img {
-      width: 100%;
-      border-radius: 12px; 
-      margin-top: 30px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
+    .social-links a.instagram:hover {
+      background: var(--instagram);
     }
     
-    .about-img:hover {
-      transform: scale(1.01);
-    }
-    
-    .stats {
-      display: flex;
-      justify-content: space-around;
-      flex-wrap: wrap;
-      margin: 40px 0;
-      gap: 20px;
-    }
-    
-    .stat-item {
-      text-align: center;
-      padding: 20px;
-      flex: 1;
-      min-width: 150px;
-      background: rgba(0,123,255,0.1);
-      border-radius: 10px;
-    }
-    
-    .stat-number {
-      font-size: 2.5rem;
-      font-weight: 700;
-      color: var(--primary);
-      margin-bottom: 5px;
-    }
-    
-    .stat-label {
-      font-size: 1rem;
-      color: var(--secondary);
-    }
-    
-    .whatsapp-button {
-      display: inline-block;
-      margin-top: 15px;
+    .social-links a.whatsapp:hover {
       background: var(--whatsapp);
-      color: white;
-      padding: 12px 25px;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
     }
     
-    .whatsapp-button:hover {
-      background: #128C7E;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+    /* Footer */
+    footer { 
+      background: var(--darker); 
+      color: #fff; 
+      text-align: center; 
+      padding: 70px 20px 40px; 
+      position: relative;
     }
     
+    .footer-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    footer p {
+      margin-bottom: 30px;
+      opacity: 0.8;
+    }
+    
+    .copyright {
+      margin-top: 50px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      font-size: 0.9rem;
+      opacity: 0.7;
+    }
+    
+    /* WhatsApp Float */
     .whatsapp-float {
       position: fixed;
       width: 60px;
       height: 60px;
-      bottom: 20px;
-      right: 20px;
+      bottom: 30px;
+      right: 30px;
       background-color: var(--whatsapp);
       color: white;
       border-radius: 50px;
       text-align: center;
       font-size: 30px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      box-shadow: var(--shadow-lg);
       z-index: 100;
-      transition: all 0.3s ease;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     
     .whatsapp-float:hover {
-      transform: scale(1.1);
+      transform: scale(1.1) rotate(10deg);
       background: #128C7E;
     }
     
+    /* Back to Top Button */
+    .back-to-top {
+      position: fixed;
+      bottom: 100px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background: var(--primary);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      box-shadow: var(--shadow);
+      z-index: 99;
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+    }
+    
+    .back-to-top.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    .back-to-top:hover {
+      background: var(--primary-dark);
+      transform: translateY(-3px);
+    }
+    
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
+    
+    .animate {
+      animation: fadeIn 0.6s ease forwards;
+    }
+    
+    .float {
+      animation: float 3s ease-in-out infinite;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 992px) {
+      .about-content,
+      .contact-container {
+        grid-template-columns: 1fr;
+      }
+      
+      .about-img {
+        order: -1;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+    }
+    
     @media (max-width: 768px) {
-      .service-item {
+      header {
+        padding: 80px 20px 60px;
+        min-height: auto;
+      }
+      
+      nav {
         flex-direction: column;
+        align-items: center;
+        gap: 10px;
+      }
+      
+      nav a {
+        width: 100%;
         text-align: center;
       }
       
-      .service-item img {
-        width: 120px;
-        height: 120px;
+      .container {
+        padding: 30px;
       }
       
-      h1 {
-        font-size: 2.2rem;
+      .section-title {
+        margin-bottom: 40px;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      section {
+        padding: 70px 20px;
       }
       
-      header p {
-        font-size: 1rem;
-      }
-      
-      h2 {
-        font-size: 1.8rem;
+      .service-card,
+      .testimonial-card {
+        padding: 20px;
       }
       
       .whatsapp-float {
         width: 50px;
         height: 50px;
         font-size: 25px;
+        bottom: 20px;
+        right: 20px;
+      }
+      
+      .back-to-top {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+        bottom: 80px;
+        right: 20px;
       }
     }
-    
-    /* Animation */
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    
-    section {
-      animation: fadeIn 0.6s ease forwards;
-    }
-    
-    section:nth-child(2) { animation-delay: 0.1s; }
-    section:nth-child(3) { animation-delay: 0.2s; }
-    section:nth-child(4) { animation-delay: 0.3s; }
-    section:nth-child(5) { animation-delay: 0.4s; }
   </style>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-BZ6SS3Y87H"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-BZ6SS3Y87H');
-</script>
 </head>
 
 <body>
-  <header>
-    <h1>S-Tech Innovations</h1>
-    <p>Bringing your Digital Vision to Life with Affordable, High-Quality Solutions</p>
-    <nav>
-      <a href="#about"><i class="fas fa-info-circle"></i> About</a>
-      <a href="#services"><i class="fas fa-laptop-code"></i> Services</a>
-      <a href="#testimonials"><i class="fas fa-quote-left"></i> Testimonials</a>
-      <a href="#contact"><i class="fas fa-envelope"></i> Contact</a>
-    </nav>
+  <!-- Header -->
+  <header id="home">
+    <div class="header-content">
+      <h1>Transform Your Business with Digital Innovation</h1>
+      <p>S-Tech Innovations delivers affordable, high-quality digital solutions tailored for South African entrepreneurs. From websites to WhatsApp chatbots, we help your business thrive online.</p>
+      
+      <div>
+        <a href="#contact" class="cta-button">
+          <i class="fas fa-paper-plane"></i> Get Started
+        </a>
+        <a href="#services" class="cta-button secondary">
+          <i class="fas fa-laptop-code"></i> Our Services
+        </a>
+      </div>
+      
+      <nav>
+        <a href="#about"><i class="fas fa-info-circle"></i> About</a>
+        <a href="#services"><i class="fas fa-laptop-code"></i> Services</a>
+        <a href="#testimonials"><i class="fas fa-quote-left"></i> Testimonials</a>
+        <a href="#contact"><i class="fas fa-envelope"></i> Contact</a>
+      </nav>
+    </div>
   </header>
 
-  <section id="about" class="about">
-    <h2>About Us</h2>
-    <p>S-Tech Innovations is a proudly South African digital agency that provides affordable, high-quality digital services to small businesses and young creatives. We specialize in making apps, websites, chatbots, and branding that look professional, function beautifully, and stay within budget.</p>
-    
-    <p>Whether you run a salon in Soweto or a clothing brand in Cape Town, we bring the digital tools you need to grow. Our mission is to bridge the digital divide by making technology accessible to all South African entrepreneurs.</p>
-    
-    <div class="stats">
-      <div class="stat-item">
-        <div class="stat-number">20+</div>
-        <div class="stat-label">Projects Completed</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-number">95%</div>
-        <div class="stat-label">Client Satisfaction</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-number">2</div>
-        <div class="stat-label">Years Experience</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-number">R500+</div>
-        <div class="stat-label">Starting Prices</div>
-      </div>
-    </div>
-    
-    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Our team working together" class="about-img">
-  </section>
-
-  <section id="services" class="services">
-    <h2>Our Services</h2>
-
-    <div class="service-item">
-      <img src="https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="App Development">
-      <div>
-        <h3><i class="fas fa-mobile-alt icon"></i>App Development</h3>
-        <p>We build powerful mobile apps for Android and iOS tailored for your business — from simple booking apps to full-featured e-commerce platforms. Whether you need login features, in-app purchases, maps, or APIs, we design scalable and sleek apps for every level.</p>
-        <p><strong>Starting at R3,500</strong> for basic apps with custom quotes available for more complex projects.</p>
-      </div>
-    </div>
-
-    <div class="service-item">
-      <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Website Development">
-      <div>
-        <h3><i class="fas fa-laptop-code icon"></i>Website Development</h3>
-        <p>From landing pages to full online stores, we create stunning, fast websites that reflect your brand and boost your online presence. We include mobile-friendly design, SEO, domain setup, hosting, and optional monthly maintenance to keep your site fresh.</p>
-        <p><strong>Starting at R1,500</strong> for basic websites with e-commerce solutions from R5,000.</p>
-      </div>
-    </div>
-
-    <div class="service-item">
-      <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Chatbots">
-      <div>
-        <h3><i class="fas fa-robot icon"></i>Chatbot Creation</h3>
-        <p>Automate your customer support with AI-powered WhatsApp and Telegram chatbots. Perfect for salons, tutors, online shops, and service-based businesses. We can integrate FAQs, dynamic replies, bookings, and even connect to your database or Google Sheets.</p>
-        <p><strong>Starting at R500</strong> for basic chatbots with more advanced solutions available.</p>
-      </div>
-    </div>
-
-    <div class="service-item">
-      <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Brand Design">
-      <div>
-        <h3><i class="fas fa-palette icon"></i>Logo & Brand Design</h3>
-        <p>We create visually stunning logos and branding that speak your brand's language. Our team delivers clean, modern design for business cards, flyers, online ads, event banners, and more. Perfect for startups, social media campaigns, and local businesses.</p>
-        <p><strong>Starting at R800</strong> for logo design with complete brand packages from R2,500.</p>
+  <!-- About Section -->
+  <section id="about" class="animate">
+    <div class="container">
+      <h2 class="section-title">About S-Tech Innovations</h2>
+      <p class="section-subtitle">Bridging the digital divide with affordable technology solutions for South African businesses</p>
+      
+      <div class="about-content">
+        <div class="about-text">
+          <p>S-Tech Innovations is a proudly South African digital agency that provides affordable, high-quality digital services to small businesses and young creatives. We specialize in making apps, websites, chatbots, and branding that look professional, function beautifully, and stay within budget.</p>
+          
+          <p>Founded by Sthembiso Mbeje, our mission is to empower local entrepreneurs with the digital tools they need to compete in today's market. We believe every business deserves a strong online presence, regardless of budget.</p>
+          
+          <p>Whether you run a salon in Soweto or a clothing brand in Cape Town, we bring the digital solutions you need to grow. Our team combines technical expertise with deep understanding of the South African business landscape.</p>
+          
+          <div class="stats">
+            <div class="stat-item">
+              <div class="stat-number">50+</div>
+              <div class="stat-label">Projects Completed</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">98%</div>
+              <div class="stat-label">Client Satisfaction</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">3</div>
+              <div class="stat-label">Years Experience</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">R500+</div>
+              <div class="stat-label">Starting Prices</div>
+            </div>
+          </div>
+        </div>
+        
+        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Our team working together" class="about-img float">
       </div>
     </div>
   </section>
 
-  <section id="testimonials" class="testimonials">
-    <h2>What Our Clients Say</h2>
-    <div class="testimonial-card">
-      <p>"S-Tech brought my business online with a clean, fast website. Their pricing made it possible even for my side hustle. The team was patient with all my questions and delivered exactly what I needed. My customer inquiries have doubled since launching!"</p>
-      <strong>- Lerato Mokoena, Hair Salon Owner (Soweto)</strong>
-    </div>
-    <div class="testimonial-card">
-      <p>"I now get customers booking via WhatsApp thanks to my chatbot from S-Tech. The service was quick and professional! They trained me on how to update the responses and it's saved me hours every week. Best investment I've made for my business."</p>
-      <strong>- Thabo Ndlovu, Personal Trainer (Pretoria)</strong>
-    </div>
-    <div class="testimonial-card">
-      <p>"Sthembiso and his team gave me a brand that stands out — from my logo to my online store. They even helped with my social media kit. The quality is amazing and the prices are unbeatable. I've recommended them to all my entrepreneur friends."</p>
-      <strong>- Zanele Khumalo, Fashion Designer (Johannesburg)</strong>
-    </div>
-  </section>
-
-  <section id="contact" class="contact">
-    <h2>Get In Touch</h2>
-    <form action="https://formspree.io/f/xrbqvyez" method="POST">
-      <div class="form-group">
-        <input type="text" name="name" placeholder="Your Name" required>
+  <!-- Services Section -->
+  <section id="services" class="animate">
+    <div class="container">
+      <h2 class="section-title">Our Services</h2>
+      <p class="section-subtitle">Custom digital solutions designed to meet your business needs and budget</p>
+      
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-mobile-alt"></i>
+          </div>
+          <h3>Mobile App Development</h3>
+          <p>Custom mobile applications for iOS and Android that help you engage customers, streamline operations, and grow your business. From simple utility apps to complex e-commerce solutions.</p>
+          <p><strong>Key Features:</strong> User authentication, payment integration, push notifications, offline functionality, and more.</p>
+          <span class="price">Starting at R3,500</span>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-laptop-code"></i>
+          </div>
+          <h3>Website Development</h3>
+          <p>Beautiful, responsive websites that work perfectly on all devices. From simple brochure sites to full e-commerce platforms with inventory management.</p>
+          <p><strong>Includes:</strong> Mobile optimization, SEO setup, contact forms, social media integration, and basic training.</p>
+          <span class="price">Starting at R1,500</span>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-robot"></i>
+          </div>
+          <h3>WhatsApp Chatbots</h3>
+          <p>Automate customer service, bookings, and FAQs with our smart WhatsApp chatbots. Reduce response times and never miss a customer inquiry.</p>
+          <p><strong>Features:</strong> Automated responses, appointment scheduling, payment collection, and multilingual support.</p>
+          <span class="price">Starting at R500</span>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-palette"></i>
+          </div>
+          <h3>Branding & Design</h3>
+          <p>Complete branding packages including logo design, business cards, social media kits, and brand guidelines to establish your professional identity.</p>
+          <p><strong>Includes:</strong> Multiple concepts, unlimited revisions, and full copyright ownership.</p>
+          <span class="price">Starting at R800</span>
+        </div>
       </div>
-      <div class="form-group">
-        <input type="email" name="email" placeholder="Your Email" required>
-      </div>
-      <div class="form-group">
-        <input type="tel" name="phone" placeholder="Your Phone Number">
-      </div>
-      <div class="form-group">
-        <select name="service" required>
-          <option value="" disabled selected>Select a service</option>
-          <option value="app">App Development</option>
-          <option value="website">Website Development</option>
-          <option value="chatbot">Chatbot Creation</option>
-          <option value="design">Logo & Brand Design</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <textarea name="message" placeholder="Tell us about your project..." rows="6" required></textarea>
-      </div>
-      <button type="submit"><i class="fas fa-paper-plane"></i> Send Message</button>
-    </form>
-    
-    <div style="text-align: center; margin-top: 30px;">
-      <p>Or contact us directly:</p>
-      <p><i class="fas fa-envelope"></i> <strong>mbejesthembiso6@gmail.com</strong></p>
-      <p><i class="fas fa-phone"></i> <strong>0723185180</strong></p>
-      <a href="https://wa.me/27839899709" class="whatsapp-button" target="_blank">
-        <i class="fab fa-whatsapp"></i> Chat on WhatsApp
-      </a>
     </div>
   </section>
 
+  <!-- Testimonials Section -->
+  <section id="testimonials" class="animate">
+    <div class="container">
+      <h2 class="section-title">Client Success Stories</h2>
+      <p class="section-subtitle">Don't just take our word for it - hear from our satisfied clients</p>
+      
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <p>"S-Tech transformed my small salon business with a professional website and booking system. My appointments have increased by 40% since launch, and the WhatsApp chatbot handles all my customer inquiries automatically."</p>
+          <div class="testimonial-author">
+            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Lerato Mokoena" class="testimonial-avatar">
+            <div class="author-info">
+              <h4>Lerato Mokoena</h4>
+              <p>Salon Owner, Soweto</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="testimonial-card">
+          <p>"The mobile app S-Tech built for my fitness business has been a game-changer. Clients can now book sessions, track progress, and make payments all in one place. The team was professional and delivered on time."</p>
+          <div class="testimonial-author">
+            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Thabo Ndlovu" class="testimonial-avatar">
+            <div class="author-info">
+              <h4>Thabo Ndlovu</h4>
+              <p>Personal Trainer, Pretoria</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="testimonial-card">
+          <p>"As a startup founder, I needed affordable but quality branding. S-Tech delivered an amazing logo and full brand package that helped me stand out. Their attention to detail and understanding of my vision was impressive."</p>
+          <div class="testimonial-author">
+            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Zanele Khumalo" class="testimonial-avatar">
+            <div class="author-info">
+              <h4>Zanele Khumalo</h4>
+              <p>Fashion Designer, Johannesburg</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="animate">
+    <div class="container">
+      <h2 class="section-title">Let's Build Something Amazing</h2>
+      <p class="section-subtitle">Get in touch to discuss your project or request a free consultation</p>
+      
+      <div class="contact-container">
+        <div class="contact-info">
+          <div class="contact-method">
+            <div class="contact-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div>
+              <h3>Email Us</h3>
+              <p>mbejesthembiso6@gmail.com</p>
+              <p>Typically responds within 24 hours</p>
+            </div>
+          </div>
+          
+          <div class="contact-method">
+            <div class="contact-icon">
+              <i class="fas fa-phone"></i>
+            </div>
+            <div>
+              <h3>Call Us</h3>
+              <p>071 761 6938</p>
+              <p>Mon-Fri, 9am-5pm</p>
+            </div>
+          </div>
+          
+          <div class="contact-method">
+            <div class="contact-icon">
+              <i class="fab fa-whatsapp"></i>
+            </div>
+            <div>
+              <h3>WhatsApp</h3>
+              <p>071 761 6938</p>
+              <p>Fastest response time</p>
+              <a href="https://wa.me/27717616938" class="whatsapp-button" target="_blank">
+                <i class="fab fa-whatsapp"></i> Chat Now
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <form action="https://formspree.io/f/xrbqvyez" method="POST" id="project-form">
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" placeholder="John Doe" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="your@email.com" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="071 234 5678">
+          </div>
+          
+          <div class="form-group">
+            <label for="service">Service Needed</label>
+            <select id="service" name="service" required>
+              <option value="" disabled selected>Select a service</option>
+              <option value="app">App Development</option>
+              <option value="website">Website Development</option>
+              <option value="chatbot">Chatbot Creation</option>
+              <option value="design">Logo & Brand Design</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="message">Project Details</label>
+            <textarea id="message" name="message" placeholder="Tell us about your project..." rows="6" required></textarea>
+          </div>
+          
+          <button type="submit">
+            <i class="fas fa-paper-plane"></i> Send Message
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
   <footer>
-    <p>&copy; 2025 S-Tech Innovations | Built by Sthembiso Mbeje | Digital Solutions for the Next Generation</p>
-    <div class="social-links">
-      <a href="https://www.facebook.com/profile.php?id=61577925764007" target="_blank" aria-label="Facebook">
-        <i class="fab fa-facebook-f"></i>
-      </a>
-      <a href="https://www.instagram.com/innovationsstech?igsh=Z2w2dDZoeDNqMHh4" target="_blank" aria-label="Instagram">
-        <i class="fab fa-instagram"></i>
-      </a>
-      <a href="https://wa.me/27839899709" target="_blank" aria-label="WhatsApp">
-        <i class="fab fa-whatsapp"></i>
-      </a>
+    <div class="footer-content">
+      <h2>S-Tech Innovations</h2>
+      <p>Empowering South African businesses with affordable digital solutions since 2022</p>
+      
+      <div class="social-links">
+        <a href="https://www.facebook.com/profile.php?id=61577925764007" class="facebook" target="_blank" aria-label="Facebook">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://www.instagram.com/innovationsstech?igsh=Z2w2dDZoeDNqMHh4" class="instagram" target="_blank" aria-label="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://wa.me/27717616938" class="whatsapp" target="_blank" aria-label="WhatsApp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </div>
+      
+      <div class="copyright">
+        <p>&copy; 2025 S-Tech Innovations. All rights reserved.</p>
+        <p>Created with passion by Sthembiso Mbeje</p>
+      </div>
     </div>
   </footer>
 
-  <!-- WhatsApp Floating Button -->
-  <a href="https://wa.me/27839899709" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
+  <!-- WhatsApp Float Button -->
+  <a href="https://wa.me/27717616938" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
     <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!-- Back to Top Button -->
+  <a href="#home" class="back-to-top" aria-label="Back to top">
+    <i class="fas fa-arrow-up"></i>
   </a>
 
   <script>
     // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
+      anchor.addEventListener('click', function(e) {
         e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-          behavior: 'smooth'
-        });
+        
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          window.scrollTo({
+            top: target.offsetTop - 80,
+            behavior: 'smooth'
+          });
+          
+          // Update URL without jumping
+          if (history.pushState) {
+            history.pushState(null, null, this.getAttribute('href'));
+          } else {
+            location.hash = this.getAttribute('href');
+          }
+        }
       });
     });
     
-    // Animation on scroll
-    const observerOptions = {
-      threshold: 0.1
-    };
+    // Back to top button visibility
+    const backToTopButton = document.querySelector('.back-to-top');
+    
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        backToTopButton.classList.add('active');
+      } else {
+        backToTopButton.classList.remove('active');
+      }
+    });
+    
+    // Form submission handling
+    const form = document.getElementById('project-form');
+    
+    if (form) {
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const formData = new FormData(form);
+        const submitButton = form.querySelector('button[type="submit"]');
+        const originalButtonText = submitButton.innerHTML;
+        
+        try {
+          // Show loading state
+          submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+          submitButton.disabled = true;
+          
+          const response = await fetch(form.action, {
+            method: 'POST',
+            body: formData,
+            headers: {
+              'Accept': 'application/json'
+            }
+          });
+          
+          if (response.ok) {
+            // Success message
+            submitButton.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
+            form.reset();
+            
+            // Show success notification
+            showNotification('Your message has been sent successfully! We will contact you soon.', 'success');
+          } else {
+            throw new Error('Form submission failed');
+          }
+        } catch (error) {
+          console.error('Error:', error);
+          submitButton.innerHTML = '<i class="fas fa-exclamation-circle"></i> Error';
+          
+          // Show error notification
+          showNotification('There was an error sending your message. Please try again or contact us directly.', 'error');
+        } finally {
+          // Reset button after 3 seconds
+          setTimeout(() => {
+            submitButton.innerHTML = originalButtonText;
+            submitButton.disabled = false;
+          }, 3000);
+        }
+      });
+    }
+    
+    // Show notification function
+    function showNotification(message, type) {
+      const notification = document.createElement('div');
+      notification.className = `notification ${type}`;
+      notification.textContent = message;
+      
+      // Style the notification
+      notification.style.position = 'fixed';
+      notification.style.bottom = '20px';
+      notification.style.left = '50%';
+      notification.style.transform = 'translateX(-50%)';
+      notification.style.padding = '15px 25px';
+      notification.style.borderRadius = '8px';
+      notification.style.color = 'white';
+      notification.style.backgroundColor = type === 'success' ? '#10B981' : '#EF4444';
+      notification.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
+      notification.style.zIndex = '1000';
+      notification.style.animation = 'fadeIn 0.3s ease forwards';
+      
+      document.body.appendChild(notification);
+      
+      // Remove after 5 seconds
+      setTimeout(() => {
+        notification.style.animation = 'fadeOut 0.3s ease forwards';
+        setTimeout(() => {
+          document.body.removeChild(notification);
+        }, 300);
+      }, 5000);
+    }
+    
+    // Intersection Observer for animations
+    const animateElements = document.querySelectorAll('.animate');
     
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -608,11 +1136,33 @@
           entry.target.style.transform = 'translateY(0)';
         }
       });
-    }, observerOptions);
+    }, {
+      threshold: 0.1
+    });
     
-    document.querySelectorAll('section').forEach(section => {
-      observer.observe(section);
+    animateElements.forEach(element => {
+      element.style.opacity = 0;
+      element.style.transform = 'translateY(20px)';
+      element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      observer.observe(element);
+    });
+    
+    // Add animation delay to each section
+    document.querySelectorAll('section').forEach((section, index) => {
+      section.style.transitionDelay = `${index * 0.1}s`;
+    });
+    
+    // Service card hover effect enhancement
+    document.querySelectorAll('.service-card').forEach(card => {
+      card.addEventListener('mouseenter', () => {
+        card.style.transform = 'translateY(-10px)';
+      });
+      
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'translateY(0)';
+      });
     });
   </script>
 </body>
 </html>
+
